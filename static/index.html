@@ -5,13 +5,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-    $(document).ready(function () {
-      setTimeout(function () {
+    function poll() {
+      $("ajax.php", function (data) {
         $.get("/api/getOutput", function (data, status) {
           $("#terminal").text(data);
         });
-      }, 200);
-    });
+      });
+    }
+    setInterval(function () { poll(); }, 250);
   </script>
 </head>
 

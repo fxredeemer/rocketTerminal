@@ -2,6 +2,7 @@
 
 #[macro_use] extern crate rocket;
 extern crate rocket_contrib;
+extern crate rand;
 
 use rocket_contrib::serve::StaticFiles;
 
@@ -11,8 +12,9 @@ fn start(port: String, speed: u16) -> String {
 }
 
 #[get("/getOutput")]
-fn get_output() -> &'static str {
-    return "Here it is!!";
+fn get_output() -> String {
+    let i: i32 = rand::random();
+    return format!("Here it is!! {}", i);
 }
 
 fn main() {
