@@ -1,35 +1,38 @@
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
-  </head>
-  <body>
-    <div class="jumbotron text-center">
-      <h1>My First Bootstrap Page</h1>
-      <p>Resize this responsive page to see the effect!</p>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      setTimeout(function () {
+        $.get("/api/getOutput", function (data, status) {
+          $("#terminal").text(data);
+        });
+      }, 200);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1>My First Bootstrap Page</h1>
+    <p>Resize this responsive page to see the effect!</p>
+  </div>
+
+  <div class="container">
+  </div class="row">
+  <div class="col-sm-4">
+    <button>Send an HTTP GET request to a page and get the result back</button>
+  </div>
+
+  </div>
+  <div class="row">
+    <div id="terminal" class="col-sm-12">
     </div>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <h3>Column 1</h3>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-          <h3>Column 2</h3>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-          <h3>Column 3</h3>
-          <p>Lorem ipsum dolor..</p>
-        </div>
-      </div>
-    </div> 
-  </body>
+  </div>
+  </div>
+</body>
+
 </html>
